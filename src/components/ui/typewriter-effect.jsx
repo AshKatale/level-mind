@@ -4,11 +4,7 @@ import { cn } from "@/lib/utils";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
 
-export const TypewriterEffect = ({
-  words,
-  className,
-  cursorClassName,
-}) => {
+export const TypewriterEffect = ({ words, className, cursorClassName }) => {
   // split text inside of words into array of characters
   const wordsArray = words.map((word) => {
     return {
@@ -152,8 +148,10 @@ export const TypewriterEffectSmooth = ({
             whiteSpace: "nowrap",
           }}
         >
-          {renderWords()}{""}
-        </div>{""}
+          {renderWords()}
+          {""}
+        </div>
+        {""}
       </motion.div>
       <motion.span
         initial={{
