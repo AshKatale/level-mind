@@ -4,29 +4,55 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { Send, Plus, History, B } from "lucide-react";
+import { Send, Plus, History } from "lucide-react";
+import axios from "axios";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
-  const handleSend = () => {
-    if (input.trim()) {
-      setMessages([
-        ...messages,
-        { id: Date.now(), content: input, isUser: true },
+  const handleSend = async () => {
+    if (!input.trim()) return; // Prevent sending empty input
+
+    // Add user message to the chat
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { id: Date.now(), content: input, isUser: true },
+    ]);
+
+    try {
+      // Make the API request
+      const response = await axios.post("/api/langflow", {
+        inputValue: input,
+      });
+
+      // Log the raw response for debugging
+      console.log("API Response:", response);
+
+      // Extract AI response
+      const aiMessage =
+        response.data?.outputs?.[0]?.outputs?.[0]?.text ||
+        "No response from AI";
+
+      // Add AI response to the chat
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { id: Date.now() + 1, content: aiMessage, isUser: false },
       ]);
-      // Simulate AI response
-      setTimeout(() => {
-        setMessages((prev) => [
-          ...prev,
-          {
-            id: Date.now() + 1,
-            content: "This is a simulated AI response to your message.",
-            isUser: false,
-          },
-        ]);
-      }, 1000);
+    } catch (error) {
+      console.error("Error during API call:", error);
+
+      // Add an error message to the chat
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          id: Date.now() + 1,
+          content: "Something went wrong. Please try again.",
+          isUser: false,
+        },
+      ]);
+    } finally {
+      // Clear the input field
       setInput("");
     }
   };
@@ -91,7 +117,6 @@ export default function Chat() {
               placeholder="Type your message..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSend()}
               className="flex-1"
             />
             <Button onClick={handleSend}>
