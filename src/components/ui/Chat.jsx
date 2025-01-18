@@ -7,17 +7,15 @@ import { Separator } from "@/components/ui/separator";
 import { Send, Plus, History, B } from "lucide-react";
 import FormatText from "../Translator";
 import axios from "axios";
-import { Parse } from "@/app/api/langflow4/route";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
-  const handleSend = async () => {
-    const res = await axios.post("/api/langflow", { inputValue: input });
+  const handleSend = async() => {
+    const res =await axios.post("/api/langflow", {inputValue: input});
     // console.log();
-    // setInput(res.data.message.text);
-    setInput(Parse(res.data.message.text));
+    setInput(res.data.message.text);
   };
 
   return (
@@ -55,10 +53,10 @@ export default function Chat() {
                 }`}
               >
                 <div
-                  className={`rounded-lg px-6 py-4 max-w-[80%] w-fit ${
+                  className={`rounded-lg px-4 py-2 max-w-[80%] ${
                     message.isUser
-                      ? "bg-primary text-primary-foreground shadow-md hover:shadow-lg transition-all duration-200"
-                      : "bg-secondary text-secondary-foreground shadow-md hover:shadow-lg transition-all duration-200"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-secondary"
                   }`}
                 >
                   {message.content}
@@ -66,8 +64,8 @@ export default function Chat() {
               </div>
             ))}
             {messages.length === 0 && (
-              <div className=" text-muted-foreground">
-                <FormatText inputText={input} />
+              <div className="text-center text-muted-foreground">
+                <FormatText inputText={input}/>
               </div>
             )}
           </div>
