@@ -1,7 +1,11 @@
+"use client";
 import { Button } from "@/components/ui/button";
 
+
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+
 import { HoverEffect } from "@/components/ui/card-hover-effect";
-import features from "@/data/data";
+import { features, words } from "@/data/data";
 
 const Home = () => {
   return (
@@ -10,9 +14,7 @@ const Home = () => {
         {/* Hero Section */}
         <div className="min-h-[60vh] flex flex-col items-center justify-center text-center space-y-8 py-16">
           <h1 className="text-5xl md:text-6xl font-bold">
-            <span className="bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">
-              ART Finder
-            </span>
+          <TypewriterEffectSmooth words={words} />
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl">
             Automated Research and Trigger Finder - Streamline your ad creation

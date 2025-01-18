@@ -7,6 +7,18 @@ import {
   Database,
 } from "lucide-react";
 
+const words = [
+  {
+    text: "ART",
+  },
+  {
+    text : " "
+      },
+  {
+    text: "Finder",
+  },
+  
+];
 
 const features = [
   {
@@ -47,4 +59,4 @@ const features = [
   },
 ];
 
-export default features;
+export { words, features };
