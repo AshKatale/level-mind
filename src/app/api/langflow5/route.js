@@ -6,9 +6,9 @@ export async function POST(req) {
 
   const { inputValue } = body;
 
-  const flowIdOrName = process.env.NEXT_PUBLIC_Text_FLOW_ID_OR_NAME;
-  const langflowId = process.env.NEXT_PUBLIC_Text_LANGFLOW_ID;
-  const applicationToken =process.env.NEXT_PUBLIC_Text_APPLICATION_TOKEN;
+  const flowIdOrName = process.env.NEXT_PUBLIC_Final_FLOW_ID_OR_NAME;
+  const langflowId = process.env.NEXT_PUBLIC_Final_LANGFLOW_ID;
+  const applicationToken =process.env.NEXT_PUBLIC_Final_APPLICATION_TOKEN;
   const langflowClient = new LangflowClient(
     "https://api.langflow.astra.datastax.com",
     applicationToken

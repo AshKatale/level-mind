@@ -1,0 +1,67 @@
+{
+  "CaompetitorAnalysis": ["Brand1", "Brand2", "Brand3", "Brand4", "Brand5"],
+  "adStrategies": ["insight1", "insight2", "insight3", "insight4"],
+  "topKeywords": [
+    "topKeywords1",
+    "topKeywords2",
+    "topKeywords3",
+    "topKeywords4",
+    "topKeywords5"
+  ],
+  "contentTrends": [
+    "contentTrends1",
+    "contentTrends2",
+    "contentTrends3",
+    "contentTrends4",
+    "contentTrends5"
+  ],
+  "customerPainPoints": [
+    "customerPainPoints1",
+    "customerPainPoints2",
+    "customerPainPoints3",
+    "customerPainPoints4",
+    "customerPainPoints5"
+  ],
+  "marketTrends": [
+    "marketTrends1",
+    "marketTrends2",
+    "marketTrends3",
+    "marketTrends4",
+    "marketTrends5"
+  ],
+  "InsightsandRecommendations": [
+    "insight1",
+    "insight2",
+    "insight3",
+    "insight4"
+  ],
+  "TopPerformingKeywords": [
+    "TopPerformingKeywords1",
+    "TopPerformingKeywords2",
+    "TopPerformingKeywords3",
+    "TopPerformingKeywords4",
+    "TopPerformingKeywords5"
+  ],
+  "ChartsforVisualization": {
+    "engagementLevels": [
+      {
+        "chartType": "barChart",
+        "title": "title",
+        "data": [
+          { "brand": "brand1", "followers": 2000000 },
+          { "brand": "brand2", "followers": 1000000 },
+          { "brand": "brand2", "followers": 500000 }
+        ]
+      },
+      {
+        "chartType": "barChart",
+        "title": "title",
+        "data": [
+          { "brand": "Tesla", "visitors": 10000000 },
+          { "brand": "ChevroletBolt", "visitors": 5000000 },
+          { "brand": "NissanLeaf", "visitors": 2000000 }
+        ]
+      }
+    ]
+  }
+}

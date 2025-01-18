@@ -7,17 +7,15 @@ import { Separator } from "@/components/ui/separator";
 import { Send, Plus, History, B } from "lucide-react";
 import FormatText from "../Translator";
 import axios from "axios";
-import { Parse } from "@/app/api/langflow4/route";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
   const handleSend = async () => {
-    const res = await axios.post("/api/langflow", { inputValue: input });
+    const res = await axios.post("/api/langflow4", { inputValue: input });
     // console.log();
-    // setInput(res.data.message.text);
-    setInput(Parse(res.data.message.text));
+    setInput(res.data.message.text);
   };
 
   return (
