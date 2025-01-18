@@ -1,7 +1,6 @@
  async function Parse() {
   const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-  const genAI = new GoogleGenerativeAI("AIzaSyD4TJ2zEn3h9lWV3gY0h5_iD_am_R_CWFI");
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   const input = `Final Output: *Competitor Analysis*
 
