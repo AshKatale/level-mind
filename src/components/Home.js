@@ -7,7 +7,8 @@ import { features, words } from "@/data/data";
 
 const App = () => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen bg-slate-900 overflow-hidden">
+      {/* Background wrapper with both image and gradient */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-black/95 to-purple-900/95" />
       </div>
