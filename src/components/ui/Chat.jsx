@@ -5,30 +5,17 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Send, Plus, History, B } from "lucide-react";
+import FormatText from "../Translator";
+import axios from "axios";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
-  const handleSend = () => {
-    if (input.trim()) {
-      setMessages([
-        ...messages,
-        { id: Date.now(), content: input, isUser: true },
-      ]);
-      // Simulate AI response
-      setTimeout(() => {
-        setMessages((prev) => [
-          ...prev,
-          {
-            id: Date.now() + 1,
-            content: "This is a simulated AI response to your message.",
-            isUser: false,
-          },
-        ]);
-      }, 1000);
-      setInput("");
-    }
+  const handleSend = async() => {
+    const res =await axios.post("/api/langflow", {inputValue: input});
+    // console.log();
+    setInput(res.data.message.text);
   };
 
   return (
@@ -78,7 +65,7 @@ export default function Chat() {
             ))}
             {messages.length === 0 && (
               <div className="text-center text-muted-foreground">
-                <p>No messages yet. Start a conversation!</p>
+                <FormatText inputText={input}/>
               </div>
             )}
           </div>
