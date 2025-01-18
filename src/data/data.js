@@ -11,13 +11,10 @@ const words = [
   {
     text: "ART",
   },
-  {
-    text : " "
-      },
+
   {
     text: "Finder",
   },
-  
 ];
 
 const features = [

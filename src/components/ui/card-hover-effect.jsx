@@ -9,13 +9,13 @@ export const HoverEffect = ({ items, className }) => {
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10",
         className
       )}
     >
       {items.map((item, idx) => (
         <div
-          key={idx} // Use `idx` as a fallback key
+          key={idx}
           className="relative group block p-2 h-full w-full cursor-pointer"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -23,7 +23,7 @@ export const HoverEffect = ({ items, className }) => {
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block rounded-3xl"
+                className="absolute inset-0 h-full w-full bg-[#8566e435] dark:bg-slate-800/[0.8] block rounded-3xl"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -39,7 +39,7 @@ export const HoverEffect = ({ items, className }) => {
           </AnimatePresence>
           <Card>
             {/* Include the icon */}
-            <div className="text-center">{item.icon}</div>
+            <div className="text-center text-white">{item.icon}</div>
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
