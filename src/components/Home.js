@@ -4,8 +4,12 @@ import { Button } from "@/components/ui/button";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { features, words } from "@/data/data";
+import { useRouter } from "next/navigation";
 
 const App = () => {
+
+  const router = useRouter();
+
   return (
     <div className="relative min-h-screen bg-slate-900 overflow-hidden">
       {/* Background wrapper with both image and gradient */}
@@ -29,6 +33,7 @@ const App = () => {
             <Button
               size="lg"
               className="bg-purple-600 hover:bg-purple-700 text-white"
+              onClick={() => router.push("/chatbox")}
             >
               Get Started Free
             </Button>
