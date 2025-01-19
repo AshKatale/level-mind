@@ -1,3 +1,5 @@
+"use client"
+
 import Chat from "@/components/ui/Chat";
 import React from "react";
 

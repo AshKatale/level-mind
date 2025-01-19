@@ -16,6 +16,9 @@ const Navbar = () => {
     { label: "Contact", href: "/contact" },
   ];
 
+  const handleGetStartedClick = () => {
+    router.push("/chatbox");
+  }
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-gradient-to-r from-black/80 to-gray-900/80 backdrop-blur-sm border-b border-gray-800/20">
