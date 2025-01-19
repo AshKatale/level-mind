@@ -10,6 +10,7 @@ const MarketAnalysisDashboard = () => {
   const [error, setError] = useState(null);
   const [inputValue, setInputValue] = useState(""); // Track the user input
 
+<<<<<<< HEAD
   // Function to process and structure the raw data into sections
   const parseData = (rawData) => {
     if (!rawData || !rawData.candidates) return null;
@@ -36,12 +37,18 @@ const MarketAnalysisDashboard = () => {
 
     return structuredData;
   };
+=======
+export default function Page() {
+  const [output, setOutput] = React.useState(); // Ensure this can handle objects
+  const [input, setInput] = React.useState('');
+>>>>>>> fb7d818282fa60f665b1e36f09f02065153988a7
 
   const handleSubmit = async () => {
     if (!inputValue.trim()) return; // Ensure there is input
 
     setLoading(true);
     try {
+<<<<<<< HEAD
       // Send the input value to the API
       const response = await axios.post("/api/comp", { inputValue: [inputValue] });
       const parsedData = parseData(response.data);
@@ -50,8 +57,35 @@ const MarketAnalysisDashboard = () => {
     } catch (err) {
       setError("Failed to fetch market data");
       setLoading(false);
+=======
+      const res = await axios.post('/api/comp', { inputValue: input });
+      console.log(res.data);
+      setOutput(parseJsonString(output?.candidates[0]?.content?.parts[0]?.text));
+      
+      // Directly set the parsed JSON object
+    } catch (error) {
+      console.error(error);
+>>>>>>> fb7d818282fa60f665b1e36f09f02065153988a7
     }
   };
+
+  function parseJsonString(jsonString) {
+    try {
+      // Remove any whitespace and newlines
+      const cleanedString = jsonString.trim();
+      
+      // Parse the string to JSON
+      const jsonObject = JSON.parse(cleanedString);
+      
+      // Return the parsed JSON object
+      return jsonObject;
+    } catch (error) {
+      // Handle parsing errors
+      console.error('Error parsing JSON string:', error.message);
+      return null;
+    }
+  }
+  
 
   return (
     <div className="max-w-6xl mx-auto p-20 space-y-6">
