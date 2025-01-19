@@ -1,8 +1,7 @@
-// import { Gemini } from "@/utils/gemini";
-// import LangflowClient from "@/utils/langFlowClient";
-// import { NextResponse } from "next/server";
-
 import { Gemini } from "@/utils/gemini";
+import LangflowClient from "@/utils/langFlowClient";
+import { NextResponse } from "next/server";
+
 
 // export async function POST(req) {
 //   const body = await req.json();
@@ -156,10 +155,10 @@ export async function POST(req) {
           * Chart 1: Sales growth (Tesla: 20%, Nissan Leaf: 10%)
           * Chart 2: Market share (Tesla: 30%, Nissan Leaf: 15%)`
 
-  const output = Gemini(inputValue);
+  const output = await Gemini(inputValue);
 
-  console.log("Received Request Body:", body);
-  console.log("Input Value:", inputValue);
+  // console.log("Received Request Body:", body);
+  // console.log("Input Value:", inputValue);
   console.log("Gemini Output:", output);
   return NextResponse.json(output, {
     status: 200,
