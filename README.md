@@ -91,15 +91,15 @@ json
 ## *Installation*  
 1. Clone the repository:  
    bash  
-   git clone https://github.com/username/ART-Finder.git  
+   git clone [https://github.com/AshKatale/.git  ](https://github.com/AshKatale/level-mind.git)                        
      
 2. Install dependencies:  
    bash  
-   pip install -r requirements.txt  
+   npm install   
      
 3. Run the application:  
    bash  
-   python app.py  
+  npm run dev
      
 
 ## *Usage*  
