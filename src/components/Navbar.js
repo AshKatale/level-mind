@@ -1,15 +1,21 @@
+"use client";
+
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { NavigationMenu } from "@/components/ui/navigation-menu";
 
+import { useRouter } from "next/navigation"; // Correct import for `useRouter`
+
 const Navbar = () => {
   const menuItems = [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
+    { label: "About", href: "/team" },
+    { label: "Competitor Analysis", href: "https://gleaming-salamander-1e9f23.netlify.app/" },
     { label: "Contact", href: "/contact" },
   ];
+
+  const router = useRouter();
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-gradient-to-r from-black/80 to-gray-900/80 backdrop-blur-sm border-b border-gray-800/20">
@@ -63,6 +69,7 @@ const Navbar = () => {
                   <Button
                     variant="secondary"
                     className="bg-purple-600/20 hover:bg-purple-600/30 text-white"
+                    onClick={() => router.push("/chatbox")} // Fix: Wrap in an arrow function
                   >
                     Get Started
                   </Button>
